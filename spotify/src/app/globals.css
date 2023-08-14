@@ -1,0 +1,21 @@
+.album {
+  font-family: sans-serif;
+    font-weight: 600;
+}
+.artist {
+  font-family: sans-serif;
+    font-weight: 600;
+}
+.cover {
+  width: 100px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: aliceblue;
+}
+* {
+  text-align: center;
+  font-size: xx-small;
+  color: antiquewhite;
+  background-color: black;
+}
+
