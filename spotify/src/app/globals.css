@@ -1,21 +1,45 @@
 .album {
   font-family: sans-serif;
     font-weight: 600;
+    margin: 10px;
 }
 .artist {
   font-family: sans-serif;
     font-weight: 600;
 }
 .cover {
-  width: 100px;
+  width: 80px;
   border-width: 2px;
   border-style: outset;
   border-color: aliceblue;
 }
 * {
-  text-align: center;
   font-size: xx-small;
   color: antiquewhite;
   background-color: black;
+  text-align: center;
 }
+input {
+  background-color: #242424;
+  border: 0;
+  border-radius: 500px;
+  color: #fff!important;
+  height: 20px;
+  padding: 6px 15px;
+  text-overflow: ellipsis;
+}
+button {
+  width: 63px;
+  border-radius: 10px;
+  padding: 4px 3px;
+  border: 1.5px solid dimgray;
+  cursor: pointer;
+}
+.album-container {
+  display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    align-items: center;
+}
+
 

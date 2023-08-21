@@ -4,37 +4,59 @@ import axios from "axios";
 import Albums from "./Albums";
 
 
+
 const Spotify = () => {
-    const [album, setAlbum] = useState()
+    const [album, setAlbum] = useState([])
+    const [inputValue, setInputValue] = useState()
 
-    const token = 'BQAaFA69IhGJjLQmQ3YZIi_YXfPir7dnj9TpJ5z0zVUl7EK1co9Ajvco22NgDfs2omFL6hKfEOT1HlzmT44b_XlF-BZ4p7MXqu_0xh7KluSSE8zIdSo'
+    const token = 'BQCxlHMRjFEi3Bw8Nk1VBVSnPLFBDrtwp69KRd7jI_BPekxhhOu_l_KpQ9Gyp3st0UTACuy4Gxyzdk2nJLqwoW9ADC8BvXe7cmFcppu16Cjkl4oRr4E'
 
-    useEffect(() => {
-        axios.get(`https://api.spotify.com/v1/albums/${album}`, {
+        
+    const searchArtist = async () => {
+        const {data} = await axios.get("https://api.spotify.com/v1/search", {
             headers: {
-                Authorization: `Bearer ${token}`
+                'Content-Type' : "application/json",
+                'Authorization': `Bearer ${token}`
+            },
+            params: {
+                q: inputValue,
+                type: "artist"
             }
         })
-        .then(function (response) {
-          // handle success
-          console.log(response);
-          setAlbum(response)
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        })
-    }, [])
+      
+        var artistID = data.artists.items[0].id
 
+        var artistTracks = await axios.get(`https://api.spotify.com/v1/artists/${artistID}/albums`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            params: {
+                limit: 10,
+                market: 'US'
+            }
+        })
+
+        setAlbum(artistTracks?.data?.items);
+    }
+    
+
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value)
+    }
+
+ 
     return (
-        <div>
-            {album?.map((item) => {
-                return (
-                    <li>
-                        <Albums item={item}/>
-                    </li>
-                )
-            })}
+        <div className="spotify">&nbsp;
+        <input onChange={handleInputChange} value={inputValue}  /> &nbsp;
+        <button onClick={searchArtist}>Search</button>
+        <div className="album-container">
+        {album?.map((item) => {
+            return (
+                <Albums item={item}/>
+            )
+        })}
+        </div>
+            
         </div>
     )
 }

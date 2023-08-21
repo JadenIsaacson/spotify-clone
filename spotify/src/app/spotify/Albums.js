@@ -1,11 +1,13 @@
 import React from "react";
 
-const Albums = ({album}) => {
+const Albums = ({item}) => {
+    console.log(item)
+
     return (
-        <div className="spotify">&nbsp;
-            <div> <img className="cover" src={album?.data?.images?.[0]?.url}/> </div>
-            <h3 className="album" >{album?.data?.type?.toUpperCase()}: {album?.data?.name}</h3>
-            <div className="artist" >{album?.data?.artists?.[0]?.name}</div>&nbsp;
+        <div item={item} className="album">&nbsp;
+                     <img className="cover" src={item?.images?.[0]?.url}/>
+                    <h3 className="album" >{item?.type?.toUpperCase()}: {item?.name}</h3>
+                     {item?.artists?.[0]?.name} &nbsp;
         </div>
     )
 }
