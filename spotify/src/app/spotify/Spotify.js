@@ -9,7 +9,7 @@ const Spotify = () => {
     const [album, setAlbum] = useState([])
     const [inputValue, setInputValue] = useState()
 
-    const token = 'BQCxlHMRjFEi3Bw8Nk1VBVSnPLFBDrtwp69KRd7jI_BPekxhhOu_l_KpQ9Gyp3st0UTACuy4Gxyzdk2nJLqwoW9ADC8BvXe7cmFcppu16Cjkl4oRr4E'
+    const token = 'BQBY8S84Bv9MnbbqUrgoBYzUvI6Efj-07-_YrA8akyd48UzbinxrXwMSfsSrp8G8j0bMDGEBZOX3EycVdWQsVdeM8Oj9YPp3zIjP4wkH2ipCrPWEtIU'
 
         
     const searchArtist = async () => {

@@ -1,17 +1,19 @@
 .album {
-  font-family: sans-serif;
-    font-weight: 600;
     margin: 10px;
+    text-overflow: ellipsis;
+    width: 120px;
+    cursor: pointer;
 }
 .artist {
   font-family: sans-serif;
     font-weight: 600;
 }
 .cover {
-  width: 80px;
-  border-width: 2px;
+  width: 75px;
+  height: 75px;
+  border-width: 1.5px;
   border-style: outset;
-  border-color: aliceblue;
+  border-color: rgb(87, 91, 94);
 }
 * {
   font-size: xx-small;
@@ -24,7 +26,7 @@ input {
   border: 0;
   border-radius: 500px;
   color: #fff!important;
-  height: 20px;
+  height: 15px;
   padding: 6px 15px;
   text-overflow: ellipsis;
 }
@@ -37,9 +39,25 @@ button {
 }
 .album-container {
   display: flex;
-    flex-wrap: wrap;
-    margin: 15px;
-    align-items: center;
+  flex-wrap: wrap;
+  margin: 15px;
+  align-items: center;
+  flex-flow: row wrap;
+  position: absolute;
 }
 
+.album-name {
+  font-family: sans-serif;
+  font-weight: 700;
+}
+
+.year {
+  font-weight: 400;
+  color: #6a6a6a;
+  font-size: 8px;
+}
+
+.artist-name {
+
+}
 
